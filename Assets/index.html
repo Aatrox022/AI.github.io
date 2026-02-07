@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aatrox</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <canvas id="spiralCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('spiralCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const maxRadius = Math.min(canvas.width, canvas.height) / 2;
+        const numTurns = 30;
+        const numPoints = 1000;
+        
+        ctx.strokeStyle = 'darkred';
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        for (let i = 0; i <= numPoints; i++) {
+            const angle = (i / numPoints) * (numTurns * 2 * Math.PI);
+            const radius = (i / numPoints) * maxRadius;
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+            ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+    </script>
+    <div class="container">
+        <h1> Welcome to the Demon Realm</h1>
+        <div class="demon-border">
+            <p>This is a dark and fiery theme inspired by Aatrox.</p>
+        </div>
+        <a href="Images.html">Enter the Abyss</a> <br>
+        <a href="#">Join the Battle</a><br>
+        <a href="#">Embrace the Darkness</a><br>
+        <a href="#">Unleash Your Power</a><br>
+        <a>input your name here : </a><input type="text" placeholder="Enter your name" />
+
+    </div>
+</body>
+</html>
